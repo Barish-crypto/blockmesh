@@ -212,7 +212,6 @@ def authenticate(proxy):
         print(f"{Fore.LIGHTCYAN_EX}[{datetime.now().strftime('%H:%M:%S')}]{Fore.GREEN} Login successful {Fore.MAGENTA}|{Fore.LIGHTYELLOW_EX} {ip_address} {Style.RESET_ALL}")
         return api_token, ip_address
     except requests.RequestException as err:
-        print(f"{Fore.LIGHTCYAN_EX}[{datetime.now().strftime('%H:%M:%S')}]{Fore.RED} Login failed {Fore.MAGENTA}|{Fore.LIGHTYELLOW_EX} {ip_address}: {err}{Style.RESET_ALL}")
         return None, None
 
 def send_uptime_report(api_token, ip_addr, proxy):
@@ -226,7 +225,6 @@ def send_uptime_report(api_token, ip_addr, proxy):
     except requests.RequestException as err:
         if proxy in proxy_tokens:
             del proxy_tokens[proxy]
-        print(f"{Fore.LIGHTCYAN_EX}[{datetime.now().strftime('%H:%M:%S')}]{Fore.RED} Failed to PING {Fore.MAGENTA}|{Fore.LIGHTYELLOW_EX} {ip_addr}: {err}{Style.RESET_ALL}")
 
 def process_proxy(proxy):
     first_run = True
