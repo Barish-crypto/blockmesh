@@ -13,7 +13,8 @@ def print_banner():
     banner = f"""
 {Fore.CYAN}{Style.BRIGHT}╔══════════════════════════════════════════════╗
 ║          BlockMesh Network AutoBot           ║
-║                                              ║
+║     Github: https://github.com/IM-Hanzou     ║
+║      Welcome and do with your own risk!      ║
 ╚══════════════════════════════════════════════╝
 """
     print(banner)
@@ -225,6 +226,7 @@ def send_uptime_report(api_token, ip_addr, proxy):
     except requests.RequestException as err:
         if proxy in proxy_tokens:
             del proxy_tokens[proxy]
+        print(f"{Fore.LIGHTCYAN_EX}[{datetime.now().strftime('%H:%M:%S')}]{Fore.RED} Failed to PING {Fore.MAGENTA}|{Fore.LIGHTYELLOW_EX} {ip_addr}: {err}{Style.RESET_ALL}")
 
 def process_proxy(proxy):
     first_run = True
